@@ -27,7 +27,7 @@ export const SampleProvider = ({ children }) => {
                     tokenRes.token,
                     tokenRes.dataUrl
                 );
-                console.log(sample);
+
                 dispatch({ type: "SET_SAMPLE", payload: sample});
 
             }catch(err){
@@ -40,7 +40,7 @@ export const SampleProvider = ({ children }) => {
 
     useEffect(() => {
         dispatch({type: "SET_FAVOURITES"});
-    }, [state.sample]);
+    }, [state.order]);
 
     useEffect(() => {
         window.appState = state;
