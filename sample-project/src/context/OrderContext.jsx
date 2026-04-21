@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createContext, useContext, useReducer, useEffect } from 'react';
 import {getToken, getDataset} from '../api/api';
 import OrderReducer from '../reducer/OrderReducer';
@@ -31,7 +30,8 @@ export const SampleProvider = ({ children }) => {
                 dispatch({ type: "SET_SAMPLE", payload: sample});
 
             }catch(err){
-                console.log("Dataset Failed to Load" + err);
+                console.error("Dataset Failed to Load", err);
+                dispatch({ type: "SET_SAMPLE", payload: [] });
             }
         };
 

@@ -16,5 +16,5 @@ export const getDataset = async (token, dataUrl) => {
             Authorization: `Bearer ${token}`
         }
     });
-    return data.data;
+    return data.data.orders;
 };

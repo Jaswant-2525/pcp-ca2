@@ -5,7 +5,12 @@ const OrderReducer = (state, action) => {
             return { ...state, order: action.payload, loading: false };
 
         case "SET_FAVOURITES":
-            return { ...state, favorites: [] };
+            return {
+                ...state,
+                favorites: state.order.filter(
+                    (o) => o.rating !== undefined && o.rating !== null && Number(o.rating) >= 4
+                ),
+            };
 
         case "MARK_DELIVERED":
             return {
