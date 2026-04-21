@@ -1,15 +1,13 @@
-// import React from 'react';
-// import OrderProvier from './context/OrderContext';
+import React from 'react';
+import OrderProvier from './context/OrderContext';
+import AppRouter from './routers/AppRouter';
 
-// const App = () => {
-//     return (
-//         <>
-//         <OrderProvier>
+const App = () => {
+    return (
+        <OrderProvier>
+            <AppRouter />
+        </OrderProvier>
+    );
+};
 
-//         </OrderProvier>
-//         </>
-//     );
-// };
-
-// export default App;
-
+export default App;

@@ -11,7 +11,7 @@ export const getToken = async (studentId, password, set) => {
 };
 
 export const getDataset = async (token, dataUrl) => {
-    const {data} = await axios.get(`${BASE_URL}${dataURL}`, {
+    const {data} = await axios.get(`${BASE_URL}${dataUrl}`, {
         headers: {
             Authorization: `Bearer ${token}`
         }

@@ -27,7 +27,7 @@ export const SampleProvider = ({ children }) => {
                     tokenRes.token,
                     tokenRes.dataUrl
                 );
-
+                console.log(sample);
                 dispatch({ type: "SET_SAMPLE", payload: sample});
 
             }catch(err){
@@ -42,5 +42,29 @@ export const SampleProvider = ({ children }) => {
         dispatch({type: "SET_FAVOURITES"});
     }, [state.sample]);
 
-    
+    useEffect(() => {
+        window.appState = state;
+    }, [state]);
+
+    const markDelivered = (orderId) => {
+        dispatch({ type: "MARK_DELIVERED", payload: orderId });
+    };
+
+    const addOrder = (order) => {
+        dispatch({ type: "ADD_ORDER", payload: order });
+    };
+
+    const deleteOrder = (orderId) => {
+        dispatch({ type: "DELETE_ORDER", payload: orderId });
+    };
+
+    return (
+        <OrderContext.Provider value={{ state, markDelivered, addOrder, deleteOrder }}>
+            {children}
+        </OrderContext.Provider>
+    );
 };
+
+export default SampleProvider;
+
+export const useOrder = () => useContext(OrderContext);
