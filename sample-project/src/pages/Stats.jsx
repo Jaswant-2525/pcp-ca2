@@ -16,11 +16,11 @@ const Stats = () => {
     const totalOrders = validOrders.reduce((count) => count + 1, 0);
 
     const deliveredOrders = validOrders.filter(
-        (o) => o.status === 'delivered'
+        (o) => o.status?.toLowerCase() === 'delivered'
     ).reduce((count) => count + 1, 0);
 
     const cancelledOrders = validOrders.filter(
-        (o) => o.status === 'cancelled'
+        (o) => o.status?.toLowerCase() === 'cancelled'
     ).reduce((count) => count + 1, 0);
 
     // Sync derived stats to window.appState for auto-grader
